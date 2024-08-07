@@ -12,6 +12,7 @@ alias gp="git push -u origin main"
 alias gf="git fetch"
 alias gfmom="git fetch; git merge origin/main"
 alias gom="git checkout main"
+alias glb='git reflog show --pretty=format:"%gs ~ %gd" --date=relative | grep checkout | grep -oE "[^ ]+ ~ .*" | awk -F~ "!seen[\$1]++" | head -n 10 | awk -F" ~ HEAD@{" "{printf(\"%s: %s\n\", substr(\$2, 1, length(\$2)-1), \$1)}"'
 gpp() {
     # Get the name of the currently checked out branch
     current_branch=$(git symbolic-ref --short HEAD)
