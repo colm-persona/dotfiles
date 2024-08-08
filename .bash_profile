@@ -25,3 +25,5 @@ __git_complete g __git_main
 __git_complete gco _git_checkout
 __git_complete gcb _git_checkout
 
+alias mg="make generate"
+
