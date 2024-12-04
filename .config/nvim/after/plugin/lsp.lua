@@ -1,9 +1,8 @@
 local lsp = require('lsp-zero').preset("recommended")
 
 lsp.ensure_installed({
-  'gopls',
   'lua_ls',
-  'jdtls',
+  'basedpyright',
 })
 
 -- Fix Undefined global 'vim'
@@ -17,17 +16,7 @@ lsp.configure('lua_ls', {
     }
 })
 
-lsp.configure('jdtls', {
-    cmd = { 'jdtls' },
-    --root_dir = lsp.util.root_pattern("pom.xml", ".git"),
-    init_options = {
-        bundles = {
-            vim.fn.glob("/home/alex/.local/share/nvim/lspinstall/java/jdtls/plugins/org.eclipse.equinox.weaving.*.jar")
-        }
-    }
-})
-
-lsp.configure('gopls', {
+lsp.configure('basedpyright', {
     settings = {
         gopls = {
             analyses = {
