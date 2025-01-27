@@ -21,7 +21,7 @@ gpp() {
     git push origin "$current_branch"
 }
 
-alias gwap='git reflog show --pretty=format:"%gs ~ %gd" --date=relative | grep checkout | grep -oE "[^ ]+ ~ .*" | awk -F~ "!seen[\$1]++" | head -n 1
+alias gwap='git reflog show --pretty=format:"%gs ~ %gd" --date=relative | grep checkout | grep -oE "[^ ]+ ~ .*" | awk -F~ "!seen[\$1]++" | head -n 1'
 
 __git_complete g __git_main
 __git_complete gco _git_checkout
@@ -29,3 +29,4 @@ __git_complete gcb _git_checkout
 
 alias mg="make generate"
 
+git config --global --add safe.directory /workspaces/persona
