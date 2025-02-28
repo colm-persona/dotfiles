@@ -18,11 +18,10 @@ lsp.configure('lua_ls', {
 
 lsp.configure('basedpyright', {
     settings = {
-        gopls = {
+        basedpyright = {
             analyses = {
-                unusedparams = true
-            },
-            staticcheck = true
+                typeCheckingMode = "basic"
+            }
         }
     }
 })
