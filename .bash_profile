@@ -28,6 +28,7 @@ __git_complete gco _git_checkout
 __git_complete gcb _git_checkout
 
 alias mg="make generate"
+alias ml="make lint"
 
 git config --global --add safe.directory /workspaces/persona
 
