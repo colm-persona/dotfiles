@@ -64,4 +64,6 @@ packer.startup(function(use)
     }
   }
 
+  use 'mfussenegger/nvim-lint'
+
 end)
