@@ -30,3 +30,6 @@ __git_complete gcb _git_checkout
 alias mg="make generate"
 
 git config --global --add safe.directory /workspaces/persona
+
+alias e="exa --group-directories-first --icons"
+alias el="exa -T -L 2 --icons --group-directories-first"
