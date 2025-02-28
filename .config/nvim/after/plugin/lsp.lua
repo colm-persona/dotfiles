@@ -19,7 +19,7 @@ lsp.configure('lua_ls', {
 lsp.configure('basedpyright', {
     settings = {
         basedpyright = {
-            analyses = {
+            analysis = {
                 typeCheckingMode = "basic"
             }
         }
