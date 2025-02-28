@@ -30,6 +30,13 @@ require("lint").linters_by_ft = {
   python = {"ruff", "dmypy"}
 }
 
+local dmypy = require("lint").linters.dmypy
+dmypy.args = {
+  "run",
+  "/workspaces/persona",
+}
+
+
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 local cmp_mappings = lsp.defaults.cmp_mappings({
