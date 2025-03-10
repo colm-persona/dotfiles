@@ -20,14 +20,15 @@ lsp.configure('basedpyright', {
     settings = {
         basedpyright = {
             analysis = {
-                typeCheckingMode = "off"
+                typeCheckingMode = "basic"
             }
         }
     }
 })
 
 require("lint").linters_by_ft = {
-  python = {"ruff", "dmypy"}
+  --python = { "ruff", "dmypy" }
+  python = { "ruff" }
 }
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
