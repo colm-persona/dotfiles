@@ -20,6 +20,8 @@ gpp() {
     # Push the current branch to origin
     git push origin "$current_branch"
 }
+alias gpa="ga . && gcm . && gpp"
+alias gmap="gfmom && ga . && gcm . && gpp"
 
 alias gwap='git reflog show --pretty=format:"%gs ~ %gd" --date=relative | grep checkout | grep -oE "[^ ]+ ~ .*" | awk -F~ "!seen[\$1]++" | head -n 1'
 
@@ -34,3 +36,6 @@ git config --global --add safe.directory /workspaces/persona
 
 alias e="exa --group-directories-first --icons"
 alias el="exa -T -L 2 --icons --group-directories-first"
+
+export PATH=$PATH:~/.cargo/bin
+alias ops="/workspaces/persona/libs/ops/ops"
