@@ -26,19 +26,6 @@ lsp.configure('basedpyright', {
     }
 })
 
-require("lint").linters_by_ft = {
-  --python = { "ruff", "dmypy" }
-  python = { "ruff" }
-}
-
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  callback = function()
-    -- try_lint without arguments runs the linters defined in `linters_by_ft`
-    -- for the current filetype
-    require("lint").try_lint()
-  end,
-})
-
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 local cmp_mappings = lsp.defaults.cmp_mappings({
@@ -76,3 +63,36 @@ lsp.setup()
 vim.diagnostic.config({
     virtual_text = true
 })
+
+--- linting / formatting ---
+
+require("lint").linters_by_ft = {
+  --python = { "ruff", "dmypy" }
+  python = { "ruff" }
+}
+
+vim.api.nvim_create_augroup("AutoLint", {})
+vim.api.nvim_create_autocmd(
+    "BufWritePost",
+    {
+        group = "AutoLint",
+        callback = function()
+          -- try_lint without arguments runs the linters defined in `linters_by_ft`
+          -- for the current filetype
+          require("lint").try_lint()
+        end,
+    }
+)
+
+vim.api.nvim_create_augroup("AutoFormat", {})
+vim.api.nvim_create_autocmd(
+    "BufWritePost",
+    {
+        pattern = "*.py",
+        group = "AutoFormat",
+        callback = function()
+            vim.cmd("silent !black --quiet %")
+            vim.cmd("edit")
+        end,
+    }
+)
