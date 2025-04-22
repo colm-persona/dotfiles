@@ -7,4 +7,4 @@ function Night()
 end
 
 -- Set default colorscheme to tokyonight-day
-Night()
+Day()
