@@ -91,8 +91,17 @@ vim.api.nvim_create_autocmd(
         pattern = "*.py",
         group = "AutoFormat",
         callback = function()
-            vim.cmd("silent !black --quiet %")
-            vim.cmd("edit")
+            -- Save the current cursor position
+            local pos = vim.api.nvim_win_get_cursor(0)
+
+            local filepath = vim.fn.expand("%:p")
+            local before = vim.fn.getftime(filepath)
+            vim.fn.system({ "black", "--quiet", filepath })
+            local after = vim.fn.getftime(filepath)
+            if after ~= before then
+                vim.cmd("edit")
+                vim.api.nvim_win_set_cursor(0, pos)
+            end
         end,
     }
 )
