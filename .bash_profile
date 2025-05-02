@@ -20,8 +20,8 @@ gpp() {
     # Push the current branch to origin
     git push origin "$current_branch"
 }
-alias gpa="ga . && gcm . && gpp"
-alias gmap="gfmom && ga . && gcm . && gpp"
+alias gpa="ga . && gcm .; gpp"
+alias gmap="gfmom; ga . && gcm .; gpp"
 
 alias gwap='git reflog show --pretty=format:"%gs ~ %gd" --date=relative | grep checkout | grep -oE "[^ ]+ ~ .*" | awk -F~ "!seen[\$1]++" | head -n 1'
 
