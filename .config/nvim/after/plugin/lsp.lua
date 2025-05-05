@@ -3,6 +3,7 @@ local lsp = require('lsp-zero').preset("recommended")
 lsp.ensure_installed({
   'lua_ls',
   'basedpyright',
+  'gopls',
 })
 
 -- Fix Undefined global 'vim'
@@ -22,6 +23,17 @@ lsp.configure('basedpyright', {
             analysis = {
                 typeCheckingMode = "basic"
             }
+        }
+    }
+})
+
+lsp.configure('gopls', {
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true
+            },
+            staticcheck = true
         }
     }
 })
