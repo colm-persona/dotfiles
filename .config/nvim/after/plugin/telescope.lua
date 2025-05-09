@@ -1,5 +1,15 @@
 local builtin = require('telescope.builtin')
 
+require("telescope").setup {
+    pickers = {
+        live_grep = {
+            additional_args = function(opts)
+                return {"--hidden"}
+            end
+        },
+    },
+}
+
 -- find files in directory that you opened vim in --
 vim.keymap.set('n', '<leader>;f', builtin.find_files, {})
 
