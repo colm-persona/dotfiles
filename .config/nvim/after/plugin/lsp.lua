@@ -1,14 +1,11 @@
 local lsp = require('lsp-zero').preset("recommended")
 
-require("mason").setup()
-require("mason-lspconfig").setup({
-    ensure_installed = {
-      'lua_ls',
-      'basedpyright',
-      'gopls',
-      'systemd-language-server',
-      'terraform',
-    },
+lsp.ensure_installed({
+  'lua_ls',
+  'basedpyright',
+  'terraform',
+  'systemd-language-server',
+  -- 'gopls',
 })
 
 -- Fix Undefined global 'vim'
