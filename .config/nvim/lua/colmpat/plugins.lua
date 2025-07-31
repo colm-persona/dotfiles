@@ -39,7 +39,7 @@ packer.startup(function(use)
   }
 
   -- go
-  use { 'fatih/vim-go', run = ':GoUpdateBinaries' }
+  -- use { 'fatih/vim-go', run = ':GoUpdateBinaries' }
 
   use {
     'VonHeikemen/lsp-zero.nvim',
