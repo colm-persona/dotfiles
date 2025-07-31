@@ -3,8 +3,6 @@ local lsp = require('lsp-zero').preset("recommended")
 lsp.ensure_installed({
   'lua_ls',
   'basedpyright',
-  'terraform',
-  'systemd-language-server',
   -- 'gopls',
 })
 
