@@ -109,7 +109,7 @@ vim.api.nvim_create_autocmd(
 
             local filepath = vim.fn.expand("%:p")
             local before = vim.fn.getftime(filepath)
-            vim.fn.system({ "black", "--quiet", filepath })
+            vim.fn.system({ "ruff", "format", "--quiet", filepath })
             local after = vim.fn.getftime(filepath)
             if after ~= before then
                 vim.cmd("edit")
