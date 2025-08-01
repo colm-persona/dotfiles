@@ -13,6 +13,7 @@ packer.startup(function(use)
   -- Aesthetics
   use 'folke/tokyonight.nvim'
   use 'folke/zen-mode.nvim'
+  use 'folke/twilight.nvim'
 
   -- Essentials
   use {
