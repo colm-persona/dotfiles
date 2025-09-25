@@ -35,21 +35,11 @@ autocmd('LspAttach', {
 })
 
 local cmp = require('blink.cmp')
-cmp.setup({})
-
--- Hide copilot on suggestion
-vim.api.nvim_create_autocmd('User', {
-  pattern = 'BlinkCmpMenuOpen',
-  callback = function()
-    require("copilot.suggestion").dismiss()
-    vim.b.copilot_suggestion_hidden = true
-  end,
-})
-
-vim.api.nvim_create_autocmd('User', {
-  pattern = 'BlinkCmpMenuClose',
-  callback = function()
-    vim.b.copilot_suggestion_hidden = false
-  end,
+cmp.setup({
+  keymap = {
+    ['<CR>'] = { 'select_and_accept', 'fallback' },
+    ['<Tab>'] = nil,
+    ['<S-Tab>'] = nil,
+  }
 })
 
