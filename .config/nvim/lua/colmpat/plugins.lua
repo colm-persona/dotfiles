@@ -25,7 +25,6 @@ packer.startup(function(use)
   }
   use({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'})
   use 'theprimeagen/harpoon'
-  -- use 'github/copilot.vim'
   use 'mbbill/undotree'
   -- for previewing markdown files
   use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
@@ -39,9 +38,10 @@ packer.startup(function(use)
   }
   use 'williamboman/mason.nvim'
 
+  use 'github/copilot.vim'
   use {
     'saghen/blink.cmp',
-    version = '1.*',
+    run = 'cargo build --release',
   }
 
 end)
